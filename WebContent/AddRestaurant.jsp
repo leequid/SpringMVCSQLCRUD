@@ -22,5 +22,6 @@
 </form>
 <a href="deleteRestaurant.do">Delete Restaurant!</a><br>
 <a href="viewRestaurant.do">View your List!</a><br>
+<a href="editRestaurant.do">Edit your List!</a><br>
 </body>
 </html>

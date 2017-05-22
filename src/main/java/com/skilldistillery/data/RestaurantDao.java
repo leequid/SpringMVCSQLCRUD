@@ -10,5 +10,6 @@ public interface RestaurantDao {
 	void addRestaurant(Restaurant R);
 	void deleteRestaurant(String name);
 	void editRestaurant(String[] RestaurantName,String[] RestaurantAddress);
+	void addFood(String rname, String name, String description, String url);
 	
 }

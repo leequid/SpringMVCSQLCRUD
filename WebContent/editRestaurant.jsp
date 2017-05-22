@@ -22,8 +22,8 @@
 <input type="submit" name="editRestaurant"/>
 </form>
 
-
 <a href="addRestaurant.jsp">Add Restaurant</a><br>
+<a href="deleteRestaurant.do">Delete Restaurant!</a><br>
 <a href="viewRestaurant.do">View your List!</a><br>
 </body>
 </html>

@@ -8,7 +8,11 @@ public class Food {
 	String spicy;
 	String Url;
 	
-	
+	public Food(String name,String description,String url){
+		this.name = name;
+		this.description = description;
+		Url = url;
+	}
 	public Food(String name,String description, double price, String veg, String spicy, String url) {
 		super();
 		this.name = name;

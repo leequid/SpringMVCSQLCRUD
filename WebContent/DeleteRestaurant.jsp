@@ -23,5 +23,6 @@
 
 <a href="addRestaurant.jsp">Add Restaurant</a><br>
 <a href="viewRestaurant.do">View your List!</a><br>
+<a href="editRestaurant.do">Edit your List!</a><br>
 </body>
 </html>

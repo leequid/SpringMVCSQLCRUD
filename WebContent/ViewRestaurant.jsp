@@ -16,13 +16,14 @@
 
 <ol>
 <c:forEach items="${i.foodList}" var="f">
-<li>${f.name} ${f.veg} ${f.description }</li>
+<li>${f.name} ${f.veg} ${f.description } </li><br>
+<img src="${f.url}" alt="picture of food" height="120" width="160">
 </c:forEach>
 </ol>
 </c:forEach>
 </ol>
 <a href="addRestaurant.jsp">Add Restaurant</a><br>
 <a href="deleteRestaurant.do">Delete Restaurant!</a><br>
-
+<a href="editRestaurant.do">Edit your List!</a><br>
 </body>
 </html>

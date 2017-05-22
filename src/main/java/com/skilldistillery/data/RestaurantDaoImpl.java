@@ -158,6 +158,16 @@ public class RestaurantDaoImpl implements RestaurantDao {
 		}
 		
 	}
+	
+	public void addFood(String rname, String name, String description, String url) {
+		for(int i=0; i < restaurantList.size(); i++){
+			Restaurant r = restaurantList.get(i);
+			if(r.getName().equals(rname)){
+				r.getFoodList().add(new Food(name,description,url));
+			}
+		}
+		
+	}
 
 	@Override
 	public void editRestaurant(String[] RestaurantName, String[] RestaurantAddress) {
