@@ -5,25 +5,41 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="master.css">
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>View Restaurant</title>
 </head>
 <body>
-<div>Restaurant name. Address</div>
+<div class="container-fluid">
+<div class="row">
+
+ <div class="col-md-2"><a href="addRestaurant.do">Add Restaurant</a></div>
+<div class="col-md-2"><a href="deleteRestaurant.do">Delete Restaurant!</a></div>
+<div class="col-md-2"><a href="viewRestaurant.do">View your List!</a></div>
+<div class="col-md-2"><a href="editRestaurant.do">Edit your List!</a></div>
+<div class="col-md-2"><a href="addFood.do">Add food to restaurant</a></div>
+</div>
+</div>
+<h1>View all the restaurant</h1>
+
 <ol>
 <c:forEach items="${restaurantList}" var="i">
-<li>${i.name}   ${i.address}</li>
+<li><h2>${i.name}</h2> </li>
 
 <ol>
 <c:forEach items="${i.foodList}" var="f">
-<li>${f.name} ${f.veg} ${f.description } </li><br>
+<c:if test = "${not empty f.name}">
+<li><h3>${f.name}</h3> </li>
+<dd>${f.description }</dd> <br>
 <img src="${f.url}" alt="picture of food" height="120" width="160">
+</c:if>
 </c:forEach>
 </ol>
 </c:forEach>
 </ol>
-<a href="addRestaurant.jsp">Add Restaurant</a><br>
-<a href="deleteRestaurant.do">Delete Restaurant!</a><br>
-<a href="editRestaurant.do">Edit your List!</a><br>
+
 </body>
 </html>

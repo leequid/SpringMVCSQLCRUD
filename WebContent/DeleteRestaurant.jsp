@@ -6,14 +6,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Delete Restaurant</title>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="master.css">
 </head>
 <body>
+<div class="container-fluid">
+<div class="row">
 
+ <div class="col-md-2"><a href="addRestaurant.do">Add Restaurant</a></div>
+<div class="col-md-2"><a href="deleteRestaurant.do">Delete Restaurant!</a></div>
+<div class="col-md-2"><a href="viewRestaurant.do">View your List!</a></div>
+<div class="col-md-2"><a href="editRestaurant.do">Edit your List!</a></div>
+<div class="col-md-2"><a href="addFood.do">Add food to restaurant</a></div>
+</div>
+</div>
+<h2>Delete Restaurant</h2>
 	<ol>
 		<c:forEach items="${restaurantList}" var="i">
 			
-			<li>${i.name}${i.address}</li> 
+			<li>${i.name}</li> 
 			<form method="post" action="deleteRestaurant.do">
 			<input type="hidden" name="restaurant" value="${i.name}"><input type="submit" value="delete" name="Address"/>	
 			</form>
@@ -21,8 +33,6 @@
 		</c:forEach>
 	</ol>
 
-<a href="addRestaurant.jsp">Add Restaurant</a><br>
-<a href="viewRestaurant.do">View your List!</a><br>
-<a href="editRestaurant.do">Edit your List!</a><br>
+
 </body>
 </html>

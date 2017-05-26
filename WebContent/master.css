@@ -1,0 +1,50 @@
+
+body{
+  background-color: Azure;
+}
+
+
+ul > li:last-child{
+  float:none;
+}
+
+ul>li{
+  float:left;
+  font-size: 250%;
+  padding-right: 10%;
+  list-style:none;
+}
+
+.row{
+	margin-left:8%;
+	margin-top:3%;
+	font-size: 110%;
+	
+}
+
+.container-fluid{
+	background-color: plum;
+}
+.address{
+	width:130%
+}
+
+.editform{
+	margin-top:4%;
+	margin-left:4%;
+
+}
+.editform1{
+	margin-top:3%;
+	margin-left:4%;
+}
+.editform2{
+	margin-bottom:5%;
+	margin-left:4%;
+
+}
+.editsubmit{
+	margin-top:2%;
+}
+
+

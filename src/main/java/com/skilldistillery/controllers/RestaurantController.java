@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.data.Address;
 import com.skilldistillery.data.Restaurant;
 import com.skilldistillery.data.RestaurantDao;
 
@@ -24,24 +25,41 @@ public class RestaurantController {
 		return new Restaurant();
 	}
 
-	@RequestMapping(path = "addRestaurant.do", params = { "restaurantName",
-			"restaurantAddress" }, method = RequestMethod.POST)
-	public ModelAndView addRestaurant(@RequestParam("restaurantName") String name,
-			@RequestParam("restaurantAddress") String address) {
-
-		dao.addRestaurant(new Restaurant(name, address));
+	@RequestMapping(path = "addRestaurant.do", params = { "restaurantName","restaurantFoodType",
+			"rAddress", "rCity","rZipcode","rState" }, method = RequestMethod.POST)
+	public ModelAndView addRestaurant(@RequestParam("restaurantName") String name,@RequestParam("restaurantFoodType") String foodType,
+	@RequestParam("rAddress") String address,@RequestParam("rCity") String city,@RequestParam("rZipcode") String zipcode,@RequestParam("rState") String state) {
+		dao.addRestaurant(name, foodType, address, city, state, zipcode);
+		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("restaurantList", dao.getAllRestaurant());
 		mv.setViewName("redirect:viewRestaurant.do");
-		dao.saveFile(dao.getAllRestaurant().get((dao.getAllRestaurant().size()) - 1));
+		return mv;
+	}
+	@RequestMapping(path = "addRestaurant.do", method = RequestMethod.GET)
+	public ModelAndView viewaddRestaurant() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("addRestaurant.jsp");
 		return mv;
 	}
 
 	@RequestMapping(path = "deleteRestaurant.do")
 	public ModelAndView loadDeleteRestaurant() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("restaurantList", dao.getAllRestaurant());
-		mv.setViewName("DeleteRestaurant.jsp");
+		mv.addObject("restaurantList", dao.returnDataList());
+		mv.setViewName("deleteRestaurant.jsp");
+		return mv;
+
+	}
+	
+	@RequestMapping(path = "deleteRestaurant.do", method = RequestMethod.POST)
+	public ModelAndView DeleteRestaurant(@RequestParam("restaurant") String name) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println(name);
+//		dao.deleteRestaurant(name);
+		dao.deleteRestaurant(name);
+		mv.addObject("restaurantList", dao.returnDataList());
+		mv.setViewName("deleteRestaurant.jsp");
 		return mv;
 
 	}
@@ -61,18 +79,11 @@ public class RestaurantController {
 		dao.editRestaurant(name, address);
 		mv.addObject("restaurantList", dao.getAllRestaurant());
 		mv.setViewName("redirect:viewRestaurant.do");
+		
 		return mv;
 	}
 
-	@RequestMapping(path = "deleteRestaurant.do", method = RequestMethod.POST)
-	public ModelAndView DeleteRestaurant(@RequestParam("restaurant") String name) {
-		ModelAndView mv = new ModelAndView();
-		dao.deleteRestaurant(name);
-		mv.addObject("restaurantList", dao.getAllRestaurant());
-		mv.setViewName("DeleteRestaurant.jsp");
-		return mv;
 
-	}
 
 	@RequestMapping(path = "addFood.do")
 	public ModelAndView addFood(@RequestParam(value = "restaurant", required = false) String name,
@@ -81,26 +92,23 @@ public class RestaurantController {
 			@RequestParam(value = "foodUrl", required = false) String fu,
 			@RequestParam(value = "AddFood", required = false) String af) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(af);
-		mv.addObject("restaurantList", dao.getAllRestaurant());
-		mv.addObject("restaurantName", name);
-		if (af != null) {
-			mv.setViewName("ViewRestaurant.jsp");
-			if(fn !=null && fd != null && fu != null){
-				dao.addFood(name, fn, fd, fu);
-			}
-		} else {
-			mv.setViewName("addFood.jsp");
-		}
 		return mv;
 
 	}
 
-	@RequestMapping(path = "viewRestaurant.do")
+	@RequestMapping(path = "viewRestaurant.do", method = RequestMethod.GET)
 	public ModelAndView view() {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("restaurantList", dao.returnDataList());
+		mv.setViewName("viewRestaurant.jsp");
+		return mv;
+	}
+	
+	@RequestMapping(path = "start.do", method = RequestMethod.GET)
+	public ModelAndView start() {
+		ModelAndView mv = new ModelAndView();
 		mv.addObject("restaurantList", dao.getAllRestaurant());
-		mv.setViewName("ViewRestaurant.jsp");
+		mv.setViewName("index.html");
 		return mv;
 	}
 }

@@ -6,22 +6,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="master.css">
 <title>Add Restaurant</title>
 </head>
 <body>
+<div class="container-fluid">
+<div class="row">
 
+ <div class="col-md-2"><a href="addRestaurant.do">Add Restaurant</a></div>
+<div class="col-md-2"><a href="deleteRestaurant.do">Delete Restaurant!</a></div>
+<div class="col-md-2"><a href="viewRestaurant.do">View your List!</a></div>
+<div class="col-md-2"><a href="editRestaurant.do">Edit your List!</a></div>
+<div class="col-md-2"><a href="addFood.do">Add food to restaurant</a></div>
+</div>
+</div>
 
-
+<h2>Add a restaurant by typing the name and the address</h2>
 <form method="post" action="addRestaurant.do">
 
-
+<div class="editform addtable">
 <label>Restaurant name: <input type="text" name ="restaurantName"></label><br>
-<label>Restaurant Address: <input type="text" name ="restaurantAddress"></label><br>
+<label>Type of food: <input type="text" name ="restaurantFoodType"></label><br>
+</div>
+<div class="editform1">
+<label>Restaurant street address: <input class="address" type="text" name ="rAddress"></label><br>
+<label>Restaurant city: <input class="address" type="text" name ="rCity"></label><br>
+<label>Restaurant state: <input class="address" type="text" name ="rState"></label><br>
+<label>Restaurant zipcode: <input class="address" type="text" name ="rZipcode"></label><br>
 
+<div class="editsubmit">
 <input type="submit" name="AddRestaurant"/>
+</div>
+</div>
+
 </form>
-<a href="deleteRestaurant.do">Delete Restaurant!</a><br>
-<a href="viewRestaurant.do">View your List!</a><br>
-<a href="editRestaurant.do">Edit your List!</a><br>
+
 </body>
 </html>

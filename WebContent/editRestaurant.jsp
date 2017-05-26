@@ -6,24 +6,34 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="master.css">
+<title>Edit Restaurant</title>
 </head>
 <body>
+<div class="container-fluid">
+<div class="row">
 
-	
+ <div class="col-md-2"><a href="addRestaurant.do">Add Restaurant</a></div>
+<div class="col-md-2"><a href="deleteRestaurant.do">Delete Restaurant!</a></div>
+<div class="col-md-2"><a href="viewRestaurant.do">View your List!</a></div>
+<div class="col-md-2"><a href="editRestaurant.do">Edit your List!</a></div>
+<div class="col-md-2"><a href="addFood.do">Add food to restaurant</a></div>
+</div>
+</div>
+	<h2>Edit Restaurant information</h2>
 	<form method="post" action="editRestaurant.do">
 
 <ol>
 		<c:forEach items="${restaurantList}" var="i">
-<li><label>Restaurant name: <input type="text" name ="restaurantName" value="${i.name}"></label><br>
-<label>Restaurant Address: <input type="text" name ="restaurantAddress" value="${i.address}"></label><br></li>
+		
+<li><div class="editform"><label>Restaurant name: <input type="text" name ="restaurantName" value="${i.name}"></label></div><br>
+<div class="editform2"><label>Restaurant Address: <input class="address" type="text" name ="restaurantAddress" value="${i.address}"></label><br></div></li>
+
 </c:forEach>
 </ol>
 <input type="submit" name="editRestaurant"/>
 </form>
 
-<a href="addRestaurant.jsp">Add Restaurant</a><br>
-<a href="deleteRestaurant.do">Delete Restaurant!</a><br>
-<a href="viewRestaurant.do">View your List!</a><br>
 </body>
 </html>

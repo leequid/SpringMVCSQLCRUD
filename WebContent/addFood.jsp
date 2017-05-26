@@ -6,9 +6,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="master.css">
 <title>Add food to restaurant</title>
 </head>
 <body>
+
+<div class="container-fluid">
+<div class="row">
+
+ <div class="col-md-2"><a href="addRestaurant.do">Add Restaurant</a></div>
+<div class="col-md-2"><a href="deleteRestaurant.do">Delete Restaurant!</a></div>
+<div class="col-md-2"><a href="viewRestaurant.do">View your List!</a></div>
+<div class="col-md-2"><a href="editRestaurant.do">Edit your List!</a></div>
+<div class="col-md-2"><a href="addFood.do">Add food to restaurant</a></div>
+</div>
+</div>
 
 	
 	<h2>Pick a restaurant you want to add food</h2>
@@ -28,8 +41,6 @@
 
 
 
-<a href="addRestaurant.jsp">Add Restaurant</a><br>
-<a href="deleteRestaurant.do">Delete Restaurant!</a><br>
-<a href="viewRestaurant.do">View your List!</a><br>
+
 </body>
 </html>
