@@ -26,14 +26,14 @@
 <form method="post" action="addRestaurant.do">
 
 <div class="editform addtable">
-<label>Restaurant name: <input type="text" name ="restaurantName"></label><br>
-<label>Type of food: <input type="text" name ="restaurantFoodType"></label><br>
+<label>Restaurant name: <input type="text" name ="rname"></label><br>
+<label>Type of food: <input type="text" name ="foodType"></label><br>
 </div>
 <div class="editform1">
-<label>Restaurant street address: <input class="address" type="text" name ="rAddress"></label><br>
-<label>Restaurant city: <input class="address" type="text" name ="rCity"></label><br>
-<label>Restaurant state: <input class="address" type="text" name ="rState"></label><br>
-<label>Restaurant zipcode: <input class="address" type="text" name ="rZipcode"></label><br>
+<label>Restaurant street address: <input class="address" type="text" name ="street"></label><br>
+<label>Restaurant city: <input class="address" type="text" name ="city"></label><br>
+<label>Restaurant state: <input class="address" type="text" name ="state"></label><br>
+<label>Restaurant zipcode: <input class="address" type="text" name ="zipcode"></label><br>
 
 <div class="editsubmit">
 <input type="submit" name="AddRestaurant"/>

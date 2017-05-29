@@ -22,15 +22,41 @@
 </div>
 </div>
 	<h2>Edit Restaurant information</h2>
+	
 	<form method="post" action="editRestaurant.do">
+<label>Restaurant name: <input type="text" name ="rname" value="${restaurant.rname}"></label><br>	
+<label>Food Type: <input type="text" name ="foodType" value="${restaurant.foodType}"></label><br>	
+	<input type="hidden" name ="rid" value="${restaurant.rid}">
 
 <ol>
-		<c:forEach items="${restaurantList}" var="i">
+<c:if test="${not empty address}">
+<h3>Address</h3>
+		<c:forEach items="${address}" var="j">
 		
-<li><div class="editform"><label>Restaurant name: <input type="text" name ="restaurantName" value="${i.name}"></label></div><br>
-<div class="editform2"><label>Restaurant Address: <input class="address" type="text" name ="restaurantAddress" value="${i.address}"></label><br></div></li>
+<li><label>Street: <input type="text" name ="street" value="${j.street}"></label><br>
+<label>City: <input type="text" name ="city" value="${j.city}"></label><br>
+<label>State: <input type="text" name ="state" value="${j.state}"></label><br>
+<label>Zip-code: <input type="text" name ="zipcode" value="${j.zipcode}"></label><br></li>
 
+<input type="hidden" name ="aid" value="${j.aid}">
+
+<input type="hidden" name ="restaurantId" value="${j.restaurantId}">
 </c:forEach>
+</c:if>
+</ol>
+
+<ol>
+<c:if test="${not empty food}">
+<h3>Food</h3>
+		<c:forEach items="${food}" var="k">
+		
+<li><label>Food Name: <input type="text" name ="fname" value="${k.fname}"></label><br>
+<label>Price: <input type="text" name ="price" value="${k.price}"></label><br>
+<label>Description: <input type="text" name ="description" value="${k.description}"></label><br>
+<label>url: <input type="text" name ="url" value="${k.url}"></label><br></li>
+<input type="hidden" name ="fid" value="${k.fid}">
+</c:forEach>
+</c:if>
 </ol>
 <input type="submit" name="editRestaurant"/>
 </form>

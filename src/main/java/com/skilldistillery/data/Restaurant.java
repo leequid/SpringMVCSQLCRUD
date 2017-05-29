@@ -4,25 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant {
-	private String name;
+	private String rname;
 	private List<Address> addressList;
 	private String foodType;
 	private List<Food> foodList;
-	private int id;
+	private int rid;
 	
 	
-	
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Restaurant [name=").append(rname).append(", addressList=").append(addressList)
+				.append(", foodType=").append(foodType).append(", foodList=").append(foodList).append(", id=")
+				.append(rid).append("]");
+		return builder.toString();
+	}
+	public Restaurant(String name, String foodType, int id) {
+		super();
+		this.rname = name;
+		this.foodType = foodType;
+		this.rid = id;
+	}
 	public Restaurant(int id, String name, List<Address> addressList, String foodType, List<Food> foodList) {
 		super();
-		this.name = name;
+		this.rname = name;
 		this.addressList = addressList;
 		this.foodType = foodType;
 		this.foodList = foodList;
-		this.id = id;
+		this.rid = id;
 	}
 	public Restaurant(String name, Address address) {
 		super();
-		this.name = name;
+		this.rname = name;
 		addressList = new ArrayList<Address>();
 		addressList.add(address);
 		foodList = new ArrayList<Food>();
@@ -32,12 +46,7 @@ public class Restaurant {
 	public Restaurant() {
 		foodList = new ArrayList<Food>();
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
 
 	public List<Address> getAddressList() {
 		return addressList;
@@ -51,11 +60,18 @@ public class Restaurant {
 	public void setFoodType(String foodType) {
 		this.foodType = foodType;
 	}
-	public int getId() {
-		return id;
+
+	public String getRname() {
+		return rname;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setRname(String rname) {
+		this.rname = rname;
+	}
+	public int getRid() {
+		return rid;
+	}
+	public void setRid(int rid) {
+		this.rid = rid;
 	}
 	public List<Food> getFoodList() {
 		return foodList;
