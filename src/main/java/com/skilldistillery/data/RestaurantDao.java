@@ -18,4 +18,5 @@ public interface RestaurantDao {
 	Restaurant getRestaurantById(int id);
 	void addFood(int id, Food f);
 	void editAddress(List<Address> a);
+	void deleteFood(int foodId, int restaurantId);
 }  

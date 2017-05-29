@@ -101,7 +101,7 @@ public class RestaurantController {
 
 	}
 	@RequestMapping(path = "addFood.do", method = RequestMethod.POST)
-	public ModelAndView addFoodToRestaurant(@RequestParam(value = "id", required=false) int id ,
+	public ModelAndView addFoodToRestaurant(@RequestParam(value = "rid", required=false) int id ,
 			@RequestParam(value = "AddFood", required=false) String add ,Food f) {
 		System.out.println(f);
 		ModelAndView mv = new ModelAndView();
@@ -117,14 +117,11 @@ public class RestaurantController {
 		return mv;
 		
 	}
-	@RequestMapping(path = "addFood.do", params="delete", method = RequestMethod.POST)
-	public ModelAndView deleteFood(@RequestParam ("foodID") int r) {
-		System.out.println(r);
+	@RequestMapping(path = "deleteFood.do", params="delete", method = RequestMethod.POST)
+	public ModelAndView deleteFood(@RequestParam ("fid") int foodId, @RequestParam ("rid") int restaurantId ) {
 		ModelAndView mv = new ModelAndView();
+		dao.deleteFood(foodId, restaurantId);
 		mv.addObject("restaurantList", dao.returnDataList());
-		
-		
-	
 			mv.setViewName("addFood.jsp");
 			return mv;
 

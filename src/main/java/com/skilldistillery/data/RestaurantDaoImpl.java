@@ -449,4 +449,20 @@ public class RestaurantDaoImpl implements RestaurantDao {
 		}
 		
 	}
+
+	@Override
+	public void deleteFood(int foodId, int restaurantId) {
+		try {
+			Connection conn = DriverManager.getConnection(url, user, pass);
+			String sql = "delete from restaurant_has_food where restaurant_id = ? and food_id = ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, restaurantId);
+			stmt.setInt(2, foodId);
+			stmt.executeUpdate();
+			// ResultSet rs = stmt.executeQuery();
+			// int restaurantId = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

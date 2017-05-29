@@ -39,7 +39,7 @@
 	<ol>
 		<c:forEach items="${restaurantList}" var="i">
 
-			<li>${i.rname}</li>
+			<li><h2>${i.rname}</h2></li>
 			<form method="post" action="addFood.do">
 				<input type="hidden" name="rid" value="${i.rid}"><input
 					type="submit" value="Select Restaurant to addFood"
@@ -52,25 +52,28 @@
 					<br>
 					<input type="submit" name="AddFood" value="addfood" />
 				</c:if>
-				<ol>
-					<c:forEach items="${i.foodList}" var="f">
+				
 
-						<c:if test="${not empty f.fname}">
-
-							<li><h3>${f.fname}</h3></li>
-							<dd>${f.description }</dd>
-							<br>
-							<img src="${f.url}" alt="picture of food" height="120"
-								width="160">
-						</c:if>						
-								<input type="text" name="fid" value="${f.fid}" />
-								<input type="hidden" name="rid" value="${i.rid}" />
-								<input type="submit" name="delete" value="delete" />
-								
-					</c:forEach>
-				</ol>
+				
 			</form>
+<ol>
+			<c:forEach items="${i.foodList}" var="f">
 
+				<c:if test="${not empty f.fname}">
+
+					<li><h3>${f.fname}</h3></li>
+					<dd>${f.description }</dd>
+					<br>
+					<img src="${f.url}" alt="picture of food" height="120" width="160">
+				
+				<form method="post" action="deleteFood.do">
+					<input type="hidden" name="fid" value="${f.fid}" /> <input
+						type="hidden" name="rid" value="${i.rid}" /> <input type="submit"
+						name="delete" value="delete" />
+				</form>
+</c:if>
+			</c:forEach>
+</ol>
 		</c:forEach>
 	</ol>
 
